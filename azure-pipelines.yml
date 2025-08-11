@@ -3,9 +3,13 @@ pool:
 
 variables:
   buildConfiguration: "Release"
-  dotnetSdkVersion: "6.0.x"
+  dotnetSdkVersion: "6.0.100"
 
 steps:
+  - task: NuGetToolInstaller@1
+
+  - task: NuGetAuthenticate@1
+
   - task: UseDotNet@2
     inputs:
       packageType: sdk
@@ -14,10 +18,4 @@ steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: "restore"
-      projects: "**/*.csproj"
-
-  - task: DotNetCoreCLI@2
-    inputs:
-      command: "build"
-      arguments: "--no-restore --configuration $(buildConfiguration)"
       projects: "**/*.csproj"
