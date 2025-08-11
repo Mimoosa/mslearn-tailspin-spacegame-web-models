@@ -3,7 +3,7 @@ pool:
 
 variables:
   buildConfiguration: "Release"
-  dotnetSdkVersion: "6.0.100"
+  dotnetSdkVersion: "8.0.x"
 
 steps:
   - task: NuGetToolInstaller@1
